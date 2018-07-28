@@ -22,6 +22,7 @@ function startComplete() {
 function activate() {
     isActivated = true;
     console.log("active...");
+    out("active");
     //play('activated');
 }
 
@@ -40,6 +41,7 @@ function capture(payload) {
 
         $motionBox.css({
             display: 'block',
+            border: '4px solid #fff',
             right: right,
             top: top,
             width: width,
@@ -49,6 +51,7 @@ function capture(payload) {
         if (!isTargetInSight) {
             isTargetInSight = true;
             console.log("SPOTTED");
+            out("movement detected");
             //play('i-see-you');
         } else {
             console.log("FIRE");
@@ -67,7 +70,13 @@ function capture(payload) {
 
 function declareLost() {
     isTargetInSight = false;
+
+    $motionBox.css({
+        border: '0px'
+    });
+
     console.log("LOST");
+    out("movement lost");
     //play('target-lost');
 }
 
@@ -85,14 +94,35 @@ function knockOver() {
 function play(audioId) {
     $('#audio-' + audioId)[0].play();
 }
+function out(s) {
+    document.getElementById('output').innerHTML = s;
+}
 
-DiffCamEngine.init({
-    video: document.getElementById('video'),
-    captureIntervalTime: 50,
-    includeMotionBox: true,
-    includeMotionPixels: true,
-    initSuccessCallback: initSuccess,
-    initErrorCallback: initError,
-    startCompleteCallback: startComplete,
-    captureCallback: capture
-});
+toggleHide('vidPar');// Turn off video canvas
+
+// Start video playback
+function startCamera() {
+    toggleHide('vidPar');
+
+    DiffCamEngine.init({
+        video: document.getElementById('video'),
+        captureIntervalTime: 50,
+        includeMotionBox: true,
+        includeMotionPixels: true,
+        initSuccessCallback: initSuccess,
+        initErrorCallback: initError,
+        startCompleteCallback: startComplete,
+        captureCallback: capture
+    });
+}
+
+
+
+function toggleHide(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
