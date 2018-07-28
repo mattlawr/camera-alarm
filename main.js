@@ -52,7 +52,7 @@ function capture(payload) {
         if (!isTargetInSight) {
             isTargetInSight = true;
             console.log("SPOTTED");
-            out("movement detected");
+            
             //play('i-see-you');
         } else {
             console.log("FIRE");
@@ -77,7 +77,7 @@ function declareLost() {
     });
 
     console.log("LOST");
-    out("movement lost");
+    
     //play('target-lost');
 }
 
@@ -96,6 +96,10 @@ function knockOver() {
 
 function play(audioId) {
     $('#audio-' + audioId)[0].play();
+}
+function stop(audioId) {
+    $('#audio-' + audioId)[0].pause();
+    $('#audio-' + audioId)[0].currentTime = 0;
 }
 function out(s) {
     document.getElementById('output').innerHTML = s;
@@ -132,6 +136,12 @@ function startCamera() {
     });
 }
 
+function answerCorrect() {
+    stop('90s');
+    toggleHide('videoField', false);// Show video feed
+
+    // Start snooze?
+}
 
 
 function toggleHide(id, visible) {
