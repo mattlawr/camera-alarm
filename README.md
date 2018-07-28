@@ -14,6 +14,8 @@ pip install pyaudio
 
 ### Javascript
 
+js tutorial: https://www.w3schools.com/jS/default.asp
+
 [good page for info](https://codersblock.com/blog/motion-detection-with-javascript/)
 
 [other github repo with similar motion detection](https://github.com/lonekorean/diff-cam-feed)
