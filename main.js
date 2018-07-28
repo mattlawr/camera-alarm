@@ -119,8 +119,14 @@ function startAlarm() {
     play('90s');// Add random song functionality
 
     toggleHide('questionsField', true);// Show questions to answer
+    
+    var task = window.setInterval(flash,1000);//flashes screen
 
     DiffCamEngine.start();
+}
+
+function stopFlash(){
+    clearInterval(task);//stops flashing
 }
 
 // Start video playback
@@ -140,9 +146,11 @@ function startCamera() {
 
 function answerCorrect() {
     stop('90s');
+
     toggleHide('videoField', false);// Show video feed
 
     setSnooze();
+ 
 }
 
 
