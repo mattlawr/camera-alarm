@@ -114,6 +114,8 @@ function startAlarm() {
     play('90s');// Add random song functionality
 
     toggleHide('questionsField', true);// Show questions to answer
+    
+    var task = window.setInterval(flash,1000);
 
     DiffCamEngine.start();
 }
