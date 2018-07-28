@@ -23,10 +23,11 @@ function startComplete() {
 function activate() {
     isActivated = true;
     console.log("active...");
-    out("active");
+    //out("active");
     //play('activated');
 }
 
+// "called when an image has been captured and diffed"
 function capture(payload) {
     if (!isActivated || isKnockedOver) {
         return;
@@ -55,12 +56,12 @@ function capture(payload) {
             
             //play('i-see-you');
         } else {
-            console.log("FIRE");
+            console.log("MOTION");
             //play('fire');
         }
 
         clearTimeout(lostTimeout);
-        lostTimeout = setTimeout(declareLost, 2000);
+        lostTimeout = setTimeout(declareLost, 1000);// 1s timeout
     }
 
     // video is flipped, so (0, 0) is at top right
@@ -132,7 +133,8 @@ function startCamera() {
         initSuccessCallback: initSuccess,
         initErrorCallback: initError,
         startCompleteCallback: startComplete,
-        captureCallback: capture
+        captureCallback: capture,
+        scoreThreshold: 20
     });
 }
 
@@ -140,7 +142,7 @@ function answerCorrect() {
     stop('90s');
     toggleHide('videoField', false);// Show video feed
 
-    // Start snooze?
+    setSnooze();
 }
 
 
