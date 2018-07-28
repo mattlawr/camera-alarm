@@ -144,8 +144,8 @@ function startCamera() {
 
 function answerCorrect() {
     stop('90s');
-    toggleHide('videoField', false);// Show video feed
-
+    toggleHide('videoField', false);// Hide video feed
+    stopFlash();
     // Start snooze?
 }
 
