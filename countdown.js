@@ -63,5 +63,5 @@ function countdown() {
             // call alarm function
             startAlarm();
         }
-    }, 60000/30);// debug
+    }, 60000);// debug
 }
