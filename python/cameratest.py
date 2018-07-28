@@ -1,6 +1,7 @@
 # https://stackoverflow.com/questions/604749/how-do-i-access-my-webcam-in-python
 
 import cv2
+print(cv2._version_)
 
 cv2.namedWindow("preview")
 vc = cv2.VideoCapture(0)
