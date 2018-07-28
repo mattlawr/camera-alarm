@@ -26,7 +26,7 @@ function setTimePrompts() {
     }
     minDiff = inputMin - nowMin;
 
-    document.getElementById("output").innerHTML = hourDiff + "h " + minDiff + "m ";
+    out(hourDiff + "h " + minDiff + "m ");
     toggleHide('preCountdownField', false);
 
     DiffCamEngine.stop();
