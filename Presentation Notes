@@ -1,0 +1,14 @@
+Okay, this is the general structure of the presentation. 
+We will open with a scenario: the problem. You need to wake for work, or school, but are too tired. You hit snooze once. 
+Fifteen minutes isn't that bad, right?
+Until you've hit snooze once for five times, and are now over an hour behind schedule.
+The problem with most alarm clocks is that despite their best efforts with blasting songs and that whiny, high-pitched beeping, they
+can be shut down with the simple press of a button. 
+To address this issue, but mostly for... personal reasons (habitual lateness), we decided to construct our own take on the alarm clock.
+Our creation requires the user to work out to put the alarm in snooze, then solve a problem to turn the alarm completely off.
+*Demonstration*
+Now, as our project was created at a hackathon, we have some polishing to do. We would like to transfer this entirely into an application format,
+not just a website. This way it will be able to be active as a timer in the background whether the alarm is off or on. We would also like to expand 
+our question repository to make it more relevant to the user and what they are studying. In the future, the user will be able to choose their
+question from a multitude of subjects.
+*Question Answering*
