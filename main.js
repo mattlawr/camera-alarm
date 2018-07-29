@@ -48,10 +48,10 @@ function capture(payload) {
         $motionBox.css({
             display: 'block',
             border: '4px solid #fff',
-            right: right,
-            top: top,
-            width: width,
-            height: height
+            right: right * 0.625,
+            top: top * 0.625,
+            width: width*0.625,
+            height: height*0.625
         });
 
         if (!isTargetInSight) {
@@ -63,6 +63,9 @@ function capture(payload) {
             console.log("MOTION " + motionCounter + " SCORE: " + payload.score);
 
             motionCounter += payload.score / 10;
+
+            document.getElementById("main").style.background = 
+
             //play('fire');
         }
         motionCounter--;
@@ -120,11 +123,25 @@ function out(s) {
     document.getElementById('output').innerHTML = s;
 }
 
+var incrementColor = function (color, step) {
+    var colorToInt = parseInt(color.substr(1), 16),                     // Convert HEX color to integer
+        nstep = parseInt(step);                                         // Convert step to integer
+    if (!isNaN(colorToInt) && !isNaN(nstep)) {                            // Make sure that color has been converted to integer
+        colorToInt += nstep;                                            // Increment integer with step
+        var ncolor = colorToInt.toString(16);                           // Convert back integer to HEX
+        ncolor = '#' + (new Array(7 - ncolor.length).join(0)) + ncolor;   // Left pad "0" to make HEX look like a color
+        if (/^#[0-9a-f]{6}$/i.test(ncolor)) {                             // Make sure that HEX is a valid color
+            return ncolor;
+        }
+    }
+    return color;
+};
+
 startCamera();
 toggleHide('videoField', false);// Turn off video canvas on start
 toggleHide('countdownField', false);// Turn off countdown on start
-toggleHide('questionsField', false);
 toggleHide('cancelField', false);
+toggleHide('questionsField', false);
 
 // Start video playback
 function startAlarm() {

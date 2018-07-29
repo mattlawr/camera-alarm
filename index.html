@@ -1,23 +1,53 @@
 ﻿<!DOCTYPE html>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-    body {
+    /*body {
         margin: 100px 20px 20px;
         text-align: center;
         background-color: #33DAFF;
+    }*/
+    body {
+        background-image: url("https://i.pinimg.com/originals/76/7d/0f/767d0f93c487b70a4ee2c3ce563b7e4b.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 100%;
+        text-align: center;
+        color: gray;
+    }
+    html {
+        height: 100%;
+    }
+
+    #main {
+        /*width: 1120px;
+        height: 800px;*/
+        width: 85%;
+        height: 85%;
+        background: white;
+        margin: 25px auto;
+        border: solid 2px gray;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: "Times New Roman";
+        font: 24pt;
+        color: black;
     }
 
     title {
         text-align: center;
         font-size: 4;
     }
-    
+
     .wrapper {
         position: relative;
-        left: 50%;
+        margin: auto;
         top: 50px;
-        width: 640px;
-        height: 480px;
+        width: 400px;
+        height: 300px;
         background-color: #33DAFF;
     }
 
@@ -34,8 +64,8 @@
 
     video {
         position: relative;
-        width: 640px;
-        height: 480px;
+        width: 100%;
+        height: 100%;
         transform: scaleX(-1); /* flip video, like a mirror */
     }
 
@@ -55,34 +85,40 @@
     <title>MOTION ALARM</title>
 </head>
 <body>
-    <h2> Motion Sensor </h2>
-    <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)</h4>
-    <!--
+    <div id="main">
+        <!--<h2> Motion Sensor </h2>-->
+        <h1>The Alarm Clock That Watches You Sleep</h1>
+        <h4>Well, only to wake you up. This alarm can tell when you hit snooze and just fall asleep, and will keep going on anyway.<br />
+        To hit snooze, you have to excercise. To turn it completely off? Answer a question.</h4>
+        
+        <!--
         Image and audio assets taken from Portal Wiki (http://theportalwiki.com/)
         under the Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).
         Changes made: turret.png - whitespace cropped
     -->
-    <div id="preCountdownField">
-        <button onclick="setTimePrompts()">Set Alarm Time [24hr]</button>
-    </div>
-    <div id="countdownField">
-        <p>Time Remaining:</p>
-        <p id="output">output</p>
-    </div>
-    <div id="questionsField">
-        <p id='greetingText'>Good morning!</p>
-        <p id='questionText'>Question: </p>
-        <p id='answerText'>Answer: <input type="text" id="userAnswer" /></p>
+        <div id="preCountdownField">
+            <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)</h4>
+            <button onclick="setTimePrompts()">Set Alarm Time [24hr]</button>
+        </div>
+        <div id="countdownField">
+            <p>Time Remaining:</p>
+            <p id="output">output</p>
+        </div>
+        <div id="questionsField">
+            <p id='greetingText'>Good morning!</p>
+            <p id='questionText'>Question: </p>
+            <p id='answerText'>Answer: <input type="text" id="userAnswer" /></p>
 
-        <button onclick="checkAnswer()">SUBMIT</button>
-    </div>
-    <div id="cancelField">
-        <button onclick="endAlarmProgram()">CANCEL ALARM</button>
-    </div>
+            <button onclick="checkAnswer()">SUBMIT</button>
+        </div>
+        <div id="cancelField">
+            <button onclick="endAlarmProgram()">CANCEL ALARM</button>
+        </div>
 
-    <div id="videoField" class="wrapper">
-        <video id="video" autoplay></video>
-        <div class="motion-box"></div>
+        <div id="videoField" class="wrapper">
+            <video id="video" autoplay></video>
+            <div class="motion-box"></div>
+        </div>
     </div>
 
     <audio src="songs/Running in the 90s.mp3" id="audio-90s" preload="auto" autostart="false"></audio>
