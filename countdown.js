@@ -33,8 +33,10 @@ function setSnooze() {
     nowHour = now.getHours();
     nowMin = now.getMinutes();
 
-    inputHour = nowHour;
-    inputMin = nowMin + (5);
+
+    input = new Date();
+    input.setHours(nowHour);
+    input.setMinutes(nowMin +5);
 
     toggleHide('preCountdownField', false);
     toggleHide('questionsField', true);
