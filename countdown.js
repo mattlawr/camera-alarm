@@ -62,7 +62,7 @@ function updateTimer() {
 	input.setTime(input.getTime() + 86400000);
     }
     hourDiff = Math.floor((input.getTime() - now.getTime())/3600000);
-    minDiff = Math.floor((input.getTime() - now.getTime())%3600000/60000);
+    minDiff = Math.round((input.getTime() - now.getTime())%3600000/60000);
 
     out(hourDiff + "h " + minDiff + "m ");
 
