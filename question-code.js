@@ -37,11 +37,16 @@ function question(questionType) {
 }
 
 function genQuestion() {
+    questionType = Math.floor((Math.random() * 3) + 1);
+    randomNum1 = Math.floor((Math.random() * 20) + 1);
+    randomNum2 = Math.floor((Math.random() * 20) + 1);
+    randomMult1 = Math.floor((Math.random() * 12) + 1);
+    randomMult2 = Math.floor((Math.random() * 12) + 1);
     question(questionType);
-    console.log(questionType);
-    console.log(randomNum1);
-    console.log(randomNum2);
-    console.log(answer);
+    //console.log(questionType);
+    //console.log(randomNum1);
+    //console.log(randomNum2);
+    //console.log(answer);
 }
 
 function checkAnswer() {
