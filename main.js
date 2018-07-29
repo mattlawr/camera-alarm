@@ -64,7 +64,7 @@ function capture(payload) {
 
             motionCounter += payload.score / 10;
 
-            document.getElementById("main").style.background = 
+            //document.getElementById("main").style.background = 
 
             //play('fire');
         }
@@ -123,7 +123,7 @@ function out(s) {
     document.getElementById('output').innerHTML = s;
 }
 
-var incrementColor = function (color, step) {
+/*var incrementColor = function (color, step) {
     var colorToInt = parseInt(color.substr(1), 16),                     // Convert HEX color to integer
         nstep = parseInt(step);                                         // Convert step to integer
     if (!isNaN(colorToInt) && !isNaN(nstep)) {                            // Make sure that color has been converted to integer
@@ -135,7 +135,7 @@ var incrementColor = function (color, step) {
         }
     }
     return color;
-};
+};*/
 
 startCamera();
 toggleHide('videoField', false);// Turn off video canvas on start
