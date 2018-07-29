@@ -7,6 +7,9 @@ var isTargetInSight = false;
 var isKnockedOver = false;
 var lostTimeout;
 
+var motionCounter = 0;
+var alarming = false;
+
 // A bunch of cam-engine stuff ---
 function initSuccess() {
     DiffCamEngine.start();
@@ -56,18 +59,26 @@ function capture(payload) {
             
             //play('i-see-you');
         } else {
-            console.log("MOTION");
+            console.log("MOTION " + motionCounter + " SCORE: " + payload.score);
+
+            motionCounter += payload.score / 10;
             //play('fire');
+        }
+        motionCounter--;
+
+        if (motionCounter >= 1000 && alarming) {
+            declareLost();
+            endAlarmProgram();
         }
 
         clearTimeout(lostTimeout);
-        lostTimeout = setTimeout(declareLost, 1000);// 1s timeout
+        lostTimeout = setTimeout(declareLost, 500);// 1s timeout
     }
 
     // video is flipped, so (0, 0) is at top right
-    if (payload.checkMotionPixel(0, 0)) {
+    /*if (payload.checkMotionPixel(0, 0)) {
         knockOver();
-    }
+    }*/
 }
 
 function declareLost() {
@@ -77,7 +88,9 @@ function declareLost() {
         border: '0px'
     });
 
-    console.log("LOST");
+    console.log("LOST TARGET");
+
+    motionCounter = 0;
     
     //play('target-lost');
 }
@@ -122,6 +135,8 @@ function startAlarm() {
     
     //var task = window.setInterval(flash,1000);//flashes screen
 
+    alarming = true;
+
     DiffCamEngine.start();
 }
 
@@ -139,18 +154,25 @@ function startCamera() {
         initSuccessCallback: initSuccess,
         initErrorCallback: initError,
         startCompleteCallback: startComplete,
-        captureCallback: capture,
-        scoreThreshold: 20
+        captureCallback: capture
     });
 }
 
 function answerCorrect() {
     stop('90s');
 
-    toggleHide('videoField', false);// Show video feed
+    toggleHide('videoField', false);// Hide video feed
 
     setSnooze();
- 
+    alarming = false;
+}
+
+function endAlarmProgram() {
+    stop('90s');
+    toggleHide('videoField', false);// Hide video feed
+    alarming = false;
+
+    DiffCamEngine.stop();
 }
 
 
