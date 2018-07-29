@@ -2,8 +2,9 @@
 
 <style>
     body {
-        margin: 170px 20px 20px;
+        margin: 80px 20px 20px;
         text-align: center;
+        background-color: #33DAFF;
     }
 
     title {
@@ -13,10 +14,12 @@
     
     .wrapper {
         display: inline-block;
-        position: relative;
+        position: absolute;
+        left: 300px;
+        top: 350px;
         width: 640px;
         height: 480px;
-        background-color: #000;
+        background-color: #33DAFF;
     }
 
     img {
@@ -32,8 +35,8 @@
 
     video {
         position: absolute;
-        left: 100px;
-        top: 0;
+        left: 160px;
+        top: 00px;
         width: 640px;
         height: 480px;
         transform: scaleX(-1); /* flip video, like a mirror */
@@ -55,7 +58,8 @@
     <title>MOTION ALARM</title>
 </head>
 <body>
-    <h3> Motion Sensor </h3>
+    <h2> Motion Sensor </h2>
+    <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)<h4>
     <!--
         Image and audio assets taken from Portal Wiki (http://theportalwiki.com/)
         under the Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).

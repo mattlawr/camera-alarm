@@ -1,0 +1,13 @@
+<html>
+
+<head>
+<title>The Alarm Clock That Watches You Sleep</title>
+<link href="index2.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="main">
+<h1>The Alarm Clock That Watches You Sleep</h1>
+Well, only to wake you up. This alarm can tell when you hit snooze and just fall asleep, and will keep going on anyway.
+</div>
+</body>
+</html>
