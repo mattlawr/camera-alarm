@@ -195,12 +195,14 @@ function endAlarmProgram() {
     toggleHide('videoField', false);// Hide video feed
     toggleHide('countdownField', false);// Turn off countdown on start
     toggleHide('questionsField', false);
-    toggleHide('cancelField', false);
+    //toggleHide('cancelField', false);
     alarming = false;
 
     console.log("alarm seq ended...")
 
     clearInterval(x);
+
+    toggleHide('cancelField', true);
 
     DiffCamEngine.stop();
 }

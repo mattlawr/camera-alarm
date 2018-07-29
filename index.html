@@ -51,12 +51,6 @@
         background-color: #33DAFF;
     }
 
-    img {
-        position: absolute;
-        right: 10px;
-        top: -160px;
-    }
-
     .knocked-over {
         transform: rotate(450deg);
         transition: transform 1s;
@@ -88,9 +82,11 @@
     <div id="main">
         <!--<h2> Motion Sensor </h2>-->
         <h1>The Alarm Clock That Watches You Sleep</h1>
-        <h4>Well, only to wake you up. This alarm can tell when you hit snooze and just fall asleep, and will keep going on anyway.<br />
-        To hit snooze, you have to excercise. To turn it completely off? Answer a question.</h4>
-        
+        <h4>
+            Well, only to wake you up. This alarm can tell when you hit snooze and just fall asleep, and will keep going on anyway.<br />
+            To hit snooze, you have to excercise. To turn it completely off? Answer a question.
+        </h4>
+
         <!--
         Image and audio assets taken from Portal Wiki (http://theportalwiki.com/)
         under the Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).
@@ -99,6 +95,9 @@
         <div id="preCountdownField">
             <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)</h4>
             <button onclick="setTimePrompts()">Set Alarm Time [24hr]</button>
+            <br />
+            <img src="https://winkgo.com/wp-content/uploads/2017/03/23-Amusingly-Lazy-Cats-Ultimate-State-Relaxation-01-720x481.jpg"
+                 style="width:300px;height:300px" ;>
         </div>
         <div id="countdownField">
             <p>Time Remaining:</p>
@@ -112,7 +111,7 @@
             <button onclick="checkAnswer()">SUBMIT</button>
         </div>
         <div id="cancelField">
-            <button onclick="window.location.reload()">CANCEL ALARM</button>
+            <button onclick="window.location.reload()">RESET ALARM</button>
         </div>
 
         <div id="videoField" class="wrapper">
