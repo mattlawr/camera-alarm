@@ -59,7 +59,7 @@
 </head>
 <body>
     <h2> Motion Sensor </h2>
-    <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)<h4>
+    <h4> Please enter the hour and minute at which you want to be waken up in 24-hour format! (For example: 14:05, 07:15)</h4>
     <!--
         Image and audio assets taken from Portal Wiki (http://theportalwiki.com/)
         under the Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).
@@ -73,9 +73,14 @@
         <p id="output">output</p>
     </div>
     <div id="questionsField">
-        <p>WHAT IS 2 + 2 QUICK</p>
-        <!--Add question stuff later-->
-        <button onclick="answerCorrect()">SUBMIT</button>
+        <p id='greetingText'>Good morning!</p>
+        <p id='questionText'>Question: </p>
+        <p id='answerText'>Answer: <input type="text" id="userAnswer" /></p>
+
+        <button onclick="checkAnswer()">SUBMIT</button>
+    </div>
+    <div id="cancelField">
+        <button onclick="endAlarmProgram()">CANCEL ALARM</button>
     </div>
 
     <div id="videoField" class="wrapper">
@@ -90,5 +95,6 @@
     <script src="diff-cam-engine.js"></script>
     <script src="main.js"></script>
     <script src="countdown.js"></script>
+    <script src="question-code.js"></script>
 </body>
 </html>

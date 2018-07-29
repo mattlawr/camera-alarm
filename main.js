@@ -13,6 +13,7 @@ var alarming = false;
 // A bunch of cam-engine stuff ---
 function initSuccess() {
     DiffCamEngine.start();
+    console.log("STARTING");
 }
 
 function initError() {
@@ -66,9 +67,9 @@ function capture(payload) {
         }
         motionCounter--;
 
-        if (motionCounter >= 1000 && alarming) {
+        if (motionCounter >= 1000 && alarming) {// MOTION
             declareLost();
-            endAlarmProgram();
+            snoozeAlarm();
         }
 
         clearTimeout(lostTimeout);
@@ -123,6 +124,7 @@ startCamera();
 toggleHide('videoField', false);// Turn off video canvas on start
 toggleHide('countdownField', false);// Turn off countdown on start
 toggleHide('questionsField', false);
+toggleHide('cancelField', false);
 
 // Start video playback
 function startAlarm() {
@@ -131,8 +133,11 @@ function startAlarm() {
 
     play('90s');// Add random song functionality
 
-    toggleHide('questionsField', true);// Show questions to answer
-    
+    toggleHide('questionsField', true);// Show questions to answer ***
+    toggleHide('cancelField', false);
+
+    genQuestion();// ***
+
     //var task = window.setInterval(flash,1000);//flashes screen
 
     alarming = true;
@@ -158,10 +163,11 @@ function startCamera() {
     });
 }
 
-function answerCorrect() {
+function snoozeAlarm() {
     stop('90s');
 
     toggleHide('videoField', false);// Hide video feed
+
 
     setSnooze();
     alarming = false;
@@ -170,7 +176,14 @@ function answerCorrect() {
 function endAlarmProgram() {
     stop('90s');
     toggleHide('videoField', false);// Hide video feed
+    toggleHide('countdownField', false);// Turn off countdown on start
+    toggleHide('questionsField', false);
+    toggleHide('cancelField', false);
     alarming = false;
+
+    console.log("alarm seq ended...")
+
+    clearInterval(x);
 
     DiffCamEngine.stop();
 }

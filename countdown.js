@@ -17,6 +17,7 @@ function setTimePrompts() {
     nowMin = now.getMinutes();
 
     toggleHide('preCountdownField', false);
+    toggleHide('cancelField', true);
 
     console.log("time prompts set");
     DiffCamEngine.stop();
@@ -32,7 +33,7 @@ function setSnooze() {
     inputMin = nowMin + (5);
 
     toggleHide('preCountdownField', false);
-    toggleHide('questionsField', false);
+    toggleHide('questionsField', true);
 
     DiffCamEngine.stop();
     countdown();
