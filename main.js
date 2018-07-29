@@ -1,6 +1,9 @@
 var $motionBox = $('.motion-box');
 var $turret = $('img');
 
+// HACKADEMIA JULY 28th 2018
+// TEAM N.S.A. [New, Secure Alarms]
+
 var scale = 10;	// capture resolution over motion resolution
 var isActivated = false;
 var isTargetInSight = false;
