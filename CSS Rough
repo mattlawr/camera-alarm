@@ -1,0 +1,21 @@
+body {
+background-image: url("https://i.pinimg.com/originals/76/7d/0f/767d0f93c487b70a4ee2c3ce563b7e4b.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+text-align: center;
+color: gray;
+}
+#main {
+	width: 1120px;
+	height: 800px;
+	background: white;
+	margin: 25px auto;
+	border: solid 2px gray;
+}
+h1 {
+	text-align: center;
+	font-family: "Times New Roman";
+	font: 24pt;
+	color: black;
+}
+	
