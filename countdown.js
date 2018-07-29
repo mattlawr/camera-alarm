@@ -1,5 +1,6 @@
 var inputHour;
 var inputMin;
+var input;
 var hourDiff;
 
 var now;
@@ -11,6 +12,9 @@ var minDiff;
 function setTimePrompts() {
     inputHour = prompt("Input hour:");
     inputMin = prompt("Input minute:");
+    input = new Date();
+    input.setHours(inputHour);
+    input.setMinutes(inputMin);
 
     now = new Date();
     nowHour = now.getHours();
@@ -46,26 +50,17 @@ function countdown() {
     toggleHide('countdownField', true);
     // Update the count down every 1 min (+ initial update)
     //
-    x = setInterval(updateTimer, 60000 / 30);// debug
+    x = setInterval(updateTimer, 60000/30);// debug
     updateTimer();
 }
 
 function updateTimer() {
-    nowMin++;
-    if (nowMin > 59) {
-        nowHour++;
-        nowMin -= 60;
+    now = new Date();
+    if(input.getTime() < now.getTime()){
+	input.setTime(input.getTime() + 86400000);
     }
-
-    if (inputHour < nowHour) {
-        inputHour += 12;
-    }
-    hourDiff = inputHour - nowHour;
-
-    if (inputMin < nowMin) {
-        inputMin += 60;
-    }
-    minDiff = inputMin - nowMin;
+    hourDiff = Math.floor((input.getTime() - now.getTime())/3600000);
+    minDiff = Math.floor(((input.getTime() - now.getTime())%3600000)/60000));
 
     out(hourDiff + "h " + minDiff + "m ");
 
