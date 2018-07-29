@@ -1,13 +1,19 @@
-var questionType = Math.floor((Math.random() * 3) + 1);
-var randomNum1 = Math.floor((Math.random() * 20) + 1);
-var randomNum2 = Math.floor((Math.random() * 20) + 1);
-var randomMult1 = Math.floor((Math.random() * 12) + 1);
-var randomMult2 = Math.floor((Math.random() * 12) + 1);
+var questionType;
+var randomNum1;
+var randomNum2;
+var randomMult1;
+var randomMult2;
 var answer = 0;
 var userAnswer = 0;
 var questionAmount = 0; 
 
 function question(questionType) {
+    questionType = Math.floor((Math.random() * 3) + 1);
+    randomNum1 = Math.floor((Math.random() * 20) + 1);
+    randomNum2 = Math.floor((Math.random() * 20) + 1);
+    randomMult1 = Math.floor((Math.random() * 12) + 1);
+    randomMult2 = Math.floor((Math.random() * 12) + 1);
+
     //ADDITION
     if (questionType == 1) {
         document.getElementById("questionText").innerHTML = "Question: " + randomNum1 + " + " + randomNum2;
@@ -54,10 +60,11 @@ function checkAnswer() {
     if (userAnswer == answer) {
         document.getElementById("greetingText").innerHTML = "Correct!";
         questionAmount++;
-        genQuestion();
-        if (questionAmount == 3) {
+        
+        if (questionAmount >= 3) {
             endAlarmProgram();
         }
+        genQuestion();
 
     }
     else {
