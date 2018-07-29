@@ -49,6 +49,7 @@ function checkAnswer() {
     if (userAnswer == answer) {
         document.getElementById("greetingText").innerHTML = "Correct!";
         questionAmount++;
+        genQuestion();
         if (questionAmount == 3) {
             endAlarmProgram();
         }
