@@ -45,7 +45,7 @@ function setSnooze() {
 
 var x;
 
-// Starts countdown prompts
+// Starts countdown prompts//
 function countdown() {
     toggleHide('countdownField', true);
     // Update the count down every 1 min (+ initial update)
