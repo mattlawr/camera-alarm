@@ -5,6 +5,7 @@ var randomMult1 = Math.floor((Math.random() * 12) + 1);
 var randomMult2 = Math.floor((Math.random() * 12) + 1);
 var answer = 0;
 var userAnswer = 0;
+var questionAmount = 1; 
 
 function question(questionType) {
     //ADDITION
@@ -47,7 +48,11 @@ function checkAnswer() {
     userAnswer = document.getElementById("userAnswer").value;
     if (userAnswer == answer) {
         document.getElementById("greetingText").innerHTML = "Correct!";
-        endAlarmProgram();
+        questionAmount++;
+        if (questionAmount == 3) {
+            endAlarmProgram();
+        }
+
     }
     else {
         document.getElementById("greetingText").innerHTML = "Incorrect!";
