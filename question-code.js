@@ -5,7 +5,7 @@ var randomMult1 = Math.floor((Math.random() * 12) + 1);
 var randomMult2 = Math.floor((Math.random() * 12) + 1);
 var answer = 0;
 var userAnswer = 0;
-var questionAmount = 1; 
+var questionAmount = 0; 
 
 function question(questionType) {
     //ADDITION
