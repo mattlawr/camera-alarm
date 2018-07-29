@@ -120,7 +120,7 @@ function startAlarm() {
 
     toggleHide('questionsField', true);// Show questions to answer
     
-    var task = window.setInterval(flash,1000);//flashes screen
+    //var task = window.setInterval(flash,1000);//flashes screen
 
     DiffCamEngine.start();
 }
